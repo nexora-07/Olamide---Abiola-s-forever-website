@@ -3,6 +3,9 @@
   --beige: #f5efe6;
   --olive: #6b7a3a;
   --gold: #c9a24d;
+  --dark-text: #333;
+  --light-text: #f5efe6;
+  --transition: all 0.3s ease;
 }
 
 * {
@@ -141,9 +144,26 @@ header.scrolled {
 .brown { background: var(--brown); color: white; }
 .olive { background: var(--olive); color: white; }
 
-h2 {
+
+.section h2 {
   font-family: 'Playfair Display', serif;
-  margin-bottom: 1.5rem;
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
 }
 
 /* DETAILS */
@@ -564,3 +584,40 @@ h2 {
   }
 }
 
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .countdown {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .countdown-item {
+    padding: 1rem;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+
+  .section h2 {
+    font-size: 1.75rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @supports (display: grid) {
+    .gallery-grid {
+      grid-auto-rows: 120px;
+    }
+  }
+}
