@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Wedding</title>
+  <link rel="stylesheet" href="./index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="logo">O & A</div>
+    <button class="nav-toggle">☰</button>
+    <nav class="nav-menu">
+      <a href="#story">Our Story</a>
+      <a href="#details">Details</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#gifts">Gifts</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Olamide & Abiola</h1>
+      <p class="date">May 7, 2026 • Lagos, Nigeria</p>
+      <p class="tagline">Forever with you is my favorite place</p>
+
+      <div class="countdown">
+        <div><span id="days">0</span><small>Days</small></div>
+        <div><span id="hours">0</span><small>Hours</small></div>
+        <div><span id="minutes">0</span><small>Minutes</small></div>
+        <div><span id="seconds">0</span><small>Seconds</small></div>
+      </div>
+
+      <a href="#rsvp" class="hero-cta">RSVP</a>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section id="story" class="section beige reveal">
+    <h2>Our Story</h2>
+    <p>
+      We met unexpectedly, and somehow everything made sense from that moment.
+      From late-night talks to endless laughter, our journey has been nothing
+      short of magic.
+    </p>
+    <p>
+      The proposal was simple, heartfelt, and perfect — just like us.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem recusandae repellat consectetur excepturi, sunt rem ipsa dolorem aliquid iusto! Similique, atque officiis. Alias saepe sapiente, reprehenderit dolorum eius in corrupti.
+    </p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, sint eos! Voluptatem, in necessitatibus? Et repudiandae distinctio sequi laboriosam velit nostrum optio doloribus, consequatur laudantium illum placeat nisi quasi dolorem assumenda! Dolor mollitia minima illum obcaecati, perspiciatis odit unde voluptas.</p>
+  </section>
+
+  <!-- WEDDING DETAILS -->
+  <section id="details" class="section brown reveal">
+    <div class="container">
+      <h2>Wedding Details</h2>
+      <div class="details-grid">
+        <div class="detail-card">
+          <h3>Date</h3>
+          <p>May 9, 2026</p>
+        </div>
+        <div class="detail-card">
+          <h3>Time</h3>
+          <p>4:00 PM</p>
+        </div>
+        <div class="detail-card">
+          <h3>Venue</h3>
+          <p>Grace Garden Event Centre, Lagos</p>
+        </div>
+        <div class="detail-card">
+          <h3>Theme</h3>
+          <p>Chocolate Brown, Beige & Olive Green</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- RSVP -->
+  <section id="rsvp" class="section beige reveal">
+    <div class="container">
+      <h2>RSVP</h2>
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="form-group">
+          <label for="guest-name">Name *</label>
+          <input type="text" id="guest-name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-email">Email *</label>
+          <input type="email" id="guest-email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-phone">Phone</label>
+          <input type="tel" id="guest-phone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-attending">Will you attend? *</label>
+          <select id="guest-attending" name="attending" required>
+            <option value="">Select an option</option>
+            <option value="Yes">Yes, I will attend</option>
+            <option value="No">No, I cannot attend</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="guest-count">Number of Guests</label>
+          <input type="number" id="guest-count" name="guests" min="1" value="1" />
+        </div>
+
+        <div class="form-group">
+          <label for="guest-message">Message</label>
+          <textarea id="guest-message" name="message" rows="4" placeholder="Share your wishes..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit RSVP</button>
+        <p id="rsvp-message"></p>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- GIFTS -->
+  <section id="gifts" class="section olive reveal">
+    <div class="container">
+      <h2>Gifts & Registry</h2>
+      <p class="gift-intro">Your presence means the world to us</p>
+      <p class="gift-subtitle">If you wish to bless us with a gift:</p>
+      <div class="gift-details">
+        <p><strong>Bank:</strong> Zenith Bank</p>
+        <p><strong>Account Name:</strong> Olamide Abiola</p>
+        <p class="account-number">
+          <strong>Account Number:</strong>
+          <span id="account-num">1234567890</span>
+          <button type="button" class="copy-btn" onclick="copyToClipboard()">Copy</button>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section beige reveal">
+    <div class="container">
+      <h2>Our Journey Together</h2>
+      <p class="gallery-subtitle">Every picture tells a story of love, laughter, and endless memories</p>
+
+      <div class="gallery-grid" id="gallery-grid">
+         <div class="gallery-item">
+          <img src="./images/random.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+        <div class="gallery-item">
+          <img src="./images/photo1.jpg" alt="Our first date">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev">&lt;</button>
+    <button class="lightbox-nav lightbox-next">&gt;</button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+      <p id="lightbox-counter"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-text">With love, Olamide & Abiola</p>
+      <p class="footer-date">May 9, 2026 • Lagos, Nigeria</p>
+    </div>
+  </footer>
+
+  <!-- Firebase SDK -->
+  <script type="module" src="./script.js"></script>
+
+  
+</body>
+<script type="module" src="./index.js"></script>
+</html>
