@@ -1,20 +1,23 @@
+const galleryImages = [];
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
 import { getFirestore, collection, addDoc, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyXXXX",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "XXXX",
-  appId: "XXXX"
-};
+    apiKey: "AIzaSyDv-w_QESVmW0xN5wr_ZSOCfpVFYQmnnM0",
+    authDomain: "olamide-and-abiola-website.firebaseapp.com",
+    projectId: "olamide-and-abiola-website",
+    storageBucket: "olamide-and-abiola-website.firebasestorage.app",
+    messagingSenderId: "1007011191409",
+    appId: "1:1007011191409:web:82cf93e6381cd1c27199d0"
+  };
 
 let db;
 
 try {
   const app = initializeApp(firebaseConfig);
   db = getFirestore(app);
+  console.log("🔥 Firebase connected:", db);
 } catch (error) {
   console.error("Firebase initialization error:", error);
 }
