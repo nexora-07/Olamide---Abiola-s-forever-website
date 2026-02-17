@@ -1,4 +1,3 @@
-const galleryImages = [];
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js';
 import { getFirestore, collection, addDoc, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js';
@@ -24,6 +23,7 @@ try {
 
 
 let currentLightboxIndex = 0;
+const galleryImages = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   try { initNavbar(); } catch(e) { console.error(e); }
@@ -89,8 +89,9 @@ function initCountdown() {
 
 function initGallery() {
   const items = document.querySelectorAll('.gallery-item img');
-
-  galleryImages.length = 0;
+  
+  
+  // galleryImages.length = 0;
 
   items.forEach(img => {
     galleryImages.push({
@@ -195,40 +196,59 @@ function initRSVPForm() {
     e.preventDefault();
 
     const formData = {
-      name: document.getElementById('guest-name').value,
-      email: document.getElementById('guest-email').value,
-      phone: document.getElementById('guest-phone').value,
-      attending: document.getElementById('guest-attending').value,
-      guests: parseInt(document.getElementById('guest-count').value),
-      message: document.getElementById('guest-message').value,
-      timestamp: new Date().toISOString(),
+      name: document.getElementById('guest-name').value.trim(),
+      email: document.getElementById('guest-email').value.trim(),
+      phone: document.getElementById('guest-phone').value.trim(),
+      attending: document.getElementById('guest-attending').value === 'yes',
+      guests: parseInt(document.getElementById('guest-count').value, 10),
+      message: document.getElementById('guest-message').value.trim(),
+      createdAt: new Date()
     };
 
     try {
-      if (!db) {
-        throw new Error('Firebase not initialized. Please configure Firebase credentials in your .env file.');
-      }
-
       const docRef = await addDoc(collection(db, 'rsvp'), formData);
 
       messageEl.style.color = '#4b2e1e';
-      messageEl.textContent = 'Thank you for your RSVP! We look forward to celebrating with you.';
+      messageEl.textContent =
+        'Thank you for your RSVP! We look forward to celebrating with you.';
       form.reset();
 
-      setTimeout(() => {
-        messageEl.textContent = '';
-      }, 5000);
+      setTimeout(() => (messageEl.textContent = ''), 5000);
     } catch (error) {
       console.error('Error submitting RSVP:', error);
       messageEl.style.color = '#d32f2f';
-      messageEl.textContent = 'Error submitting RSVP. Please try again later.';
+      messageEl.textContent =
+        'Error submitting RSVP. Please try again later.';
 
-      setTimeout(() => {
-        messageEl.textContent = '';
-      }, 5000);
+      setTimeout(() => (messageEl.textContent = ''), 5000);
     }
   });
 }
+
+async function getRSVPNamesAndEmails() {
+  if (!db) return console.error('Firestore not initialized');
+
+  try {
+    const rsvpCol = collection(db, 'rsvp');
+    const snapshot = await getDocs(rsvpCol);
+
+    const collated = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        name: data.name,
+        email: data.email,
+        phoneno: data.phone
+      };
+    });
+
+    console.log('RSVP Names & Emails:', collated);
+    return collated;
+  } catch (error) {
+    console.error('Error fetching RSVPs:', error);
+  }
+}
+
+getRSVPNamesAndEmails();
 
 window.copyToClipboard = function() {
   const accountNum = document.getElementById('account-num').textContent;
@@ -242,4 +262,6 @@ window.copyToClipboard = function() {
     }, 2000);
   });
 };
+
+
 

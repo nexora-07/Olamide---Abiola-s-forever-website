@@ -98,7 +98,7 @@ header.scrolled {
 /* HERO */
 .hero {
   height: 100vh;
-  background: url("./images/random.jpg") center/cover no-repeat;
+  background: url("./images/O & A 1.JPG") center 40%/cover no-repeat;
 }
 
 .hero-overlay {
@@ -145,6 +145,29 @@ header.scrolled {
 
 
 /* SECTIONS */
+/* STORY */
+.met{
+  font-size: 3em;
+}
+.story-card {
+  flex: 1;
+  min-width: 300px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.story-card h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.story-card p {
+  margin-bottom: 15px;
+  line-height: 1.7;
+}
+
 .section {
   padding: 4rem 2rem;
   text-align: center;
