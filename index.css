@@ -30,16 +30,20 @@ header {
   align-items: center;
   background: transparent;
   z-index: 1000;
+  height: 60px;
 }
 
 header.scrolled {
   background: rgba(75, 46, 30, 0.9);
 }
 
-.logo {
+.logo img{
   font-family: 'Playfair Display', serif;
   color: white;
   font-size: 1.2rem;
+  width: 60px;
+  /* max-width: 40vw; */
+  height: auto;
 }
 
 .nav-menu a {
@@ -564,6 +568,9 @@ header.scrolled {
 .footer-date {
   font-size: 0.95rem;
   opacity: 0.8;
+}
+.footer img{
+  width: 100px;
 }
 
 
