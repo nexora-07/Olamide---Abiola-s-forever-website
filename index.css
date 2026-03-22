@@ -41,7 +41,8 @@ header.scrolled {
   font-family: 'Playfair Display', serif;
   color: white;
   font-size: 1.2rem;
-  width: 70px;
+  width: 72px;
+  padding-top: 6px;
   /* max-width: 40vw; */
   height: auto;
 }
