@@ -459,6 +459,65 @@ header.scrolled {
   font-weight: 500;
 }
 
+/* UPLOAD SECTION STYLES */
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.qr-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.qr-card p {
+  color: var(--brown);
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.qr-image {
+  width: 200px;
+  height: 200px;
+  display: block;
+}
+
+.upload-subtitle {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.upload-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--brown);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  margin-top: 1rem;
+}
+
+.upload-btn:hover {
+  background: #dab855;
+  transform: translateY(-3px);
+}
+
+@media (min-width: 768px) {
+  .upload-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+}
+
 /* LIGHTBOX */
 .lightbox {
   display: none;
